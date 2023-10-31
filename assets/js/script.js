@@ -25,14 +25,14 @@
    //console.log('el total a pagar es ' + totalAPagar);
  }
 
- function limpiar() {
-   document.getElementById('totalPag').innerHTML = '';
-   document.getElementById('formulario').reset();
- }
+ //function limpiar() {
+   //document.getElementById('totalPag').innerHTML = '';
+   //document.getElementById('formulario').reset();
+ //}
  
  
- var y = document.getElementById('btnLimpiar');
- y.addEventListener('click', limpiar);
+ //var y = document.getElementById('btnLimpiar');
+ //y.addEventListener('click', limpiar);
 
- var q = document.getElementById('btnResumen');
- q.addEventListener('click', suma);
+ //var q = document.getElementById('btnResumen');
+ //q.addEventListener('click', suma);
