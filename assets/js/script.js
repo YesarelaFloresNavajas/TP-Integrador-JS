@@ -26,11 +26,21 @@
  }
 
  //function limpiar() {
-   //document.getElementById('totalPag').innerHTML = '';
+   //document.getElementById('totalPag').textContent = 'Total a Pagar: $ ';
    //document.getElementById('formulario').reset();
  //}
  
  
+ function limpiar() {
+   const formulario = document.getElementById('formulario');
+   formulario.reset();
+   const parrafo = document.getElementById('totalPag');
+       parrafo.textContent = 'Total a Pagar: $';
+ }
+var botonBorrar= document.getElementById("btnLimpiar");
+ //botonBorrar.addEventListener('click', limpiar)
+
+
  //var y = document.getElementById('btnLimpiar');
  //y.addEventListener('click', limpiar);
 
