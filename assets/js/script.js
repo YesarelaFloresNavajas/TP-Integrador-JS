@@ -10,7 +10,8 @@
 
    let totalAPagar = 0;
 
-   if (categoria.value == 1) {
+   if (cantidad > 0) {
+      if (categoria.value == 1) {
       totalAPagar = cantidad * estudiante;
    } else if (categoria.value == 2) {
       totalAPagar = cantidad * Trainee;
@@ -18,6 +19,9 @@
       totalAPagar = cantidad * Junior;
    } else if (categoria.value == 0) {
       totalAPagar = cantidad * general;
+   }
+   } else {
+      alert('Ingrese un número positivo');
    }
 
    document.getElementById('totalPag').innerText = 'Total a Pagar: $ ' + totalAPagar;
