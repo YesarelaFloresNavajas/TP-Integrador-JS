@@ -1,4 +1,5 @@
 
+ //Obtener el total a pagar
  function suma() {
 
     let cantidad = document.getElementById('cantidad').value;
@@ -34,7 +35,7 @@
    //document.getElementById('formulario').reset();
  //}
  
- 
+ //Borrar campos
  function limpiar() {
    const formulario = document.getElementById('formulario');
    formulario.reset();
@@ -54,17 +55,18 @@ var botonBorrar= document.getElementById("btnLimpiar");
 
  // para poder enviar y obtener el total
 
- function dblcl() {
-   return document.getElementById('botRes').innerText = 'haga doble click para ver el total';
-}
+ //function dblcl() {
+   //return document.getElementById('botRes').innerText = 'haga doble click para ver el total';
+//}
 
 
-//validar formulario
+//Validar los campos del Formulario
 function validarForm(){
 
    var expRegNombre=/^[a-zA-ZÑñÁáÉéÍíÓóÚúÜü\s]+$/;
    var expRegApellidos=/^[a-zA-ZÑñÁáÉéÍíÓóÚúÜü\s]+$/;
    var expRegCorreo=/^\w+@(\w+\.)+\w{2,4}$/; 
+   var campo = true;
  
  
       var nombre = document.getElementById("inputNombre");
@@ -76,6 +78,7 @@ function validarForm(){
          nombre.focus();
          apellidos.focus();
          correo.focus();
+         campo = false;
          return false;
       }
       //Campo nombre
@@ -83,12 +86,14 @@ function validarForm(){
       {
        alert("El campo nombre es requerido");
        nombre.focus();
+       campo = false;
        return false;
       }
       if (!expRegNombre.exec(nombre.value))
       {
          alert("El campo nombre admite letras y espacios.")
          nombre.focus();
+         campo = false;
          return false;
       }
       //Campo apellido
@@ -96,12 +101,14 @@ function validarForm(){
       {
        alert("El campo apellidos es requerido");
        apellidos.focus();
+       campo = false;
        return false;
       }
       if(!expRegApellidos.exec(apellidos.value))
       {
         alert("El campo apellidos admite letras y espacios.")
         apellidos.focus();
+        campo = false;
         return false;
       }
  
@@ -111,37 +118,43 @@ function validarForm(){
       {
        alert("El campo correo es requerido");
        correo.focus();
+       campo = false;
        return false;
       }
       if(!expRegCorreo.exec(correo.value))
       {
         alert("El campo correo no tiene el formato correcto.")
         correo.focus();
+        campo = false;
         return false;
       }
  
-      return true;
-   }
 
+      if (campo ==true) { 
+   
+         suma();
+        
+         return true;
+      }
+         
+     }
 
 
    // asociacion del boton enviar con el formulario en html//
-   window.onload = function()
-   { 
+   //window.onload = function()
+   //{ 
       
-     var formu = document.getElementById("btnResumen");
-     formu.addEventListener('click', validarForm);
+     //var formu = document.getElementById("btnResumen");
+     //formu.addEventListener('click', validarForm);
      // párrafo para saber cómo obtener el total
-     formu.addEventListener('click', dblcl);
+     //formu.addEventListener('click', dblcl);
      //alert('para saber el total haga dobleclick');
      //doble click para ver el total
-     formu.addEventListener('dblclick', suma);
+     //formu.addEventListener('dblclick', suma);
      //formu.onsubmit = validarForm;
-   }
+   //}
 
-
-
-   
+//otra forma
    
    
    //alert("Enviando");
