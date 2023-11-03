@@ -91,13 +91,13 @@
         <form class="row g-3" id="formulario">
 
           <div class="col-md-6">
-            <input type="text" class="form-control" id="inputNombre" placeholder="Nombre" aria-label="Nombre" required>
+            <input type="text" class="form-control" id="inputNombre" placeholder="Nombre" aria-label="Nombre" name="nombre" required>
           </div>
           <div class="col-md-6">
-            <input type="text" class="form-control" id="inputApellido" placeholder="Apellido" aria-label="Apellido" required>
+            <input type="text" class="form-control" id="inputApellido" placeholder="Apellido" aria-label="Apellido" name="appellido" required>
           </div>
           <div class="col-12">
-            <input type="email" class="form-control" id="inputEmail" placeholder="Correo" aria-label="Correo" required>
+            <input type="email" class="form-control" id="inputEmail" placeholder="Correo" aria-label="Correo" name="correo" required>
           </div>
 
           <div class="col-md-6">
@@ -118,13 +118,13 @@
             <p class="mb-0" id="totalPag">Total a Pagar: $</p>
           </div>
 
-          <div class="col">
+          <div class="col" id="botones">
             <button class="btn btn-success col-sm-12  botonEnviar" type="reset" id="btnLimpiar"
               onclick="limpiar()">Borrar</button>
           </div>
           <div class="col">
-            <button class="btn btn-success col-sm-12 botonEnviar" type="button" id="btnResumen"
-              onclick="suma()">Resumen</button>
+            <button class="btn btn-success col-sm-12 botonEnviar" type="button" id="btnResumen">Resumen</button>
+            <p class="text-secondary text-opacity-75 text-center" style="font-size: smaller;" id="botRes"></p>
           </div>
       </div>
 

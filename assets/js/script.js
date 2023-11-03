@@ -24,7 +24,7 @@
       alert('Ingrese un número positivo');
    }
 
-   document.getElementById('totalPag').innerText = 'Total a Pagar: $ ' + totalAPagar;
+   return document.getElementById('totalPag').innerText = 'Total a Pagar: $ ' + totalAPagar;
    //return totalAPagar;
    //console.log('el total a pagar es ' + totalAPagar);
  }
@@ -50,3 +50,108 @@ var botonBorrar= document.getElementById("btnLimpiar");
 
  //var q = document.getElementById('btnResumen');
  //q.addEventListener('click', suma);
+
+
+ // para poder enviar y obtener el total
+
+ function dblcl() {
+   return document.getElementById('botRes').innerText = 'haga doble click para ver el total';
+}
+
+
+//validar formulario
+function validarForm(){
+
+   var expRegNombre=/^[a-zA-ZÑñÁáÉéÍíÓóÚúÜü\s]+$/;
+   var expRegApellidos=/^[a-zA-ZÑñÁáÉéÍíÓóÚúÜü\s]+$/;
+   var expRegCorreo=/^\w+@(\w+\.)+\w{2,4}$/; 
+ 
+ 
+      var nombre = document.getElementById("inputNombre");
+      var apellidos = document.getElementById("inputApellido");
+      var correo = document.getElementById("inputEmail");
+
+      if (!nombre.value && !expRegNombre.exec(nombre.value) && !apellidos.value && !expRegApellidos.exec(apellidos.value) && !correo.value && !expRegCorreo.exec(correo.value)) {
+         alert("Por favor, llene los campos");
+         nombre.focus();
+         apellidos.focus();
+         correo.focus();
+         return false;
+      }
+      //Campo nombre
+      if(!nombre.value)
+      {
+       alert("El campo nombre es requerido");
+       nombre.focus();
+       return false;
+      }
+      if (!expRegNombre.exec(nombre.value))
+      {
+         alert("El campo nombre admite letras y espacios.")
+         nombre.focus();
+         return false;
+      }
+      //Campo apellido
+      if(!apellidos.value)
+      {
+       alert("El campo apellidos es requerido");
+       apellidos.focus();
+       return false;
+      }
+      if(!expRegApellidos.exec(apellidos.value))
+      {
+        alert("El campo apellidos admite letras y espacios.")
+        apellidos.focus();
+        return false;
+      }
+ 
+ 
+      //campo email
+      if(!correo.value)
+      {
+       alert("El campo correo es requerido");
+       correo.focus();
+       return false;
+      }
+      if(!expRegCorreo.exec(correo.value))
+      {
+        alert("El campo correo no tiene el formato correcto.")
+        correo.focus();
+        return false;
+      }
+ 
+      return true;
+   }
+
+
+
+   // asociacion del boton enviar con el formulario en html//
+   window.onload = function()
+   { 
+      
+     var formu = document.getElementById("btnResumen");
+     formu.addEventListener('click', validarForm);
+     // párrafo para saber cómo obtener el total
+     formu.addEventListener('click', dblcl);
+     //alert('para saber el total haga dobleclick');
+     //doble click para ver el total
+     formu.addEventListener('dblclick', suma);
+     //formu.onsubmit = validarForm;
+   }
+
+
+
+   
+   
+   
+   //alert("Enviando");
+    //document.contacto_frm.submit();
+   
+     //}
+     // asociacion del boton enviar con el formulario en html//
+     //window.onload = function()
+     //{ 
+       //var botonEnviar;
+       //botonEnviar = document.contacto_frm.btnResumen;
+       //botonEnviar.onclick = validarForm;
+     //}
